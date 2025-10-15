@@ -37,6 +37,8 @@ jobs:
         env:
           SONAR_TOKEN: https://sonarcloud.io
           SONAR_HOST_URL: ${{ secrets.SONAR_TOKEN }}
+          SONAR_PROJECT_KEY: rajeshpathak610_react-devops-deploy
+          SONAR_ORGANIZATION: rajeshpathak610
 
 
       # Step 5: Build React app
