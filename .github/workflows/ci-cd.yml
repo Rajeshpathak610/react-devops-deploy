@@ -40,6 +40,7 @@ jobs:
           SONAR_PROJECT_KEY: Rajeshpathak610_react-devops-deploy
           SONAR_ORGANIZATION: rajeshpathak610
 
+
       # Step 5: Build React app
       - name: Build React App
         run: npm run build
