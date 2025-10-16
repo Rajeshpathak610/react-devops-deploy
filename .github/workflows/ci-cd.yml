@@ -29,8 +29,8 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      # Step 4: Run SonarQube Scan
-      - name: SonarQube Scan
+      # Step 4: Run SonarCloud Scan
+      - name: SonarCloud Scan
         uses: sonarsource/sonarqube-scan-action@v3
         with:
           projectBaseDir: .
@@ -39,7 +39,6 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_PROJECT_KEY: Rajeshpathak610_react-devops-deploy
           SONAR_ORGANIZATION: rajeshpathak610
-
 
       # Step 5: Build React app
       - name: Build React App
@@ -71,6 +70,7 @@ jobs:
       - name: Run Container
         run: |
           docker run -d -p 3000:80 ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest
+
 
 
 
