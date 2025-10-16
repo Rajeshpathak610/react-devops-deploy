@@ -30,15 +30,21 @@ jobs:
         run: npm ci
 
       # Step 4: Run SonarCloud Scan
+       # --- SonarCloud Analysis ---
       - name: SonarCloud Scan
         uses: sonarsource/sonarqube-scan-action@v3
         with:
           projectBaseDir: .
+          args: >
+            -Dsonar.projectKey=Rajeshpathak610_react-devops-deploy
+            -Dsonar.organization=rajeshpathak610
+            -Dsonar.sources=.
+            -Dsonar.host.url=https://sonarcloud.io
+            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
+            -Dsonar.branch.name=${{ github.ref_name }}
         env:
-          SONAR_HOST_URL: https://sonarcloud.io
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_PROJECT_KEY: Rajeshpathak610_react-devops-deploy
-          SONAR_ORGANIZATION: rajeshpathak610
+          SONAR_HOST_URL: https://sonarcloud.io
 
 
       # Step 5: Build React app
